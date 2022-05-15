@@ -15,6 +15,9 @@ public class MenuUsuario extends javax.swing.JFrame {
      * Creates new form MenuUsuario
      */
     public MenuUsuario() {
+        setExtendedState(MAXIMIZED_BOTH);
+        setTitle("Menu do Usuário");
+        initComponents();
         initComponents();
     }
 

@@ -15,6 +15,8 @@ public class MenuMotorista extends javax.swing.JFrame {
      * Creates new form MenuMotorista
      */
     public MenuMotorista() {
+        setExtendedState(MAXIMIZED_BOTH);
+        setTitle("Menu do Motorista");
         initComponents();
     }
 
