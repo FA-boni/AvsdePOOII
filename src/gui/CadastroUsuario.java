@@ -11,8 +11,12 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Usuario;
@@ -30,22 +34,21 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }
     
     public void PopularJTable(String sql) {
-          try
-          {
+          
+          try{
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","12345");
            PreparedStatement banco = (PreparedStatement)conn.prepareStatement(sql);
-           banco.execute(); // cria o vetor
+           banco.execute(); 
 
            ResultSet resultado = banco.executeQuery(sql);
 
-           DefaultTableModel model =(DefaultTableModel) jUsuarios.getModel();
+           DefaultTableModel model =(DefaultTableModel) jUsuarios1.getModel();
            model.setNumRows(0);
 
            while(resultado.next())
            {
                model.addRow(new Object[] 
                { 
-                  //retorna os dados da tabela do BD, cada campo e um coluna.
                   resultado.getString("id"),
                   resultado.getString("username"),
                   resultado.getString("senha"),
@@ -214,6 +217,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -300,8 +306,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         .addComponent(btnInserirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -385,7 +392,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 //Registra JDBC driver
                 Class.forName("com.mysql.jdbc.Driver");
                 //Abrindo a conexão
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","00Gugu00");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","12345");
                 //Executa a query de atualização
                 java.sql.Statement st = conn.createStatement();
                 st.executeUpdate("UPDATE usuarios SET username='"
@@ -416,7 +423,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 //Abrindo a conexão
                 Connection conn =
-                DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","00Gugu00");
+                DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","12345");
                 //Executa a query de exclusão
                 java.sql.Statement st = conn.createStatement();
                 st.executeUpdate("DELETE FROM usuarios WHERE id='" + this.txtId.getText() + "'");
@@ -434,7 +441,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnApagarUsuarioActionPerformed
 
     private void btnPesquisarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarUsuarioActionPerformed
-
         txtId.setEnabled(true);
         btnPesquisarUsuario.setEnabled(true);
         btnNovoUsuario.setEnabled(true);
@@ -444,75 +450,73 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtUsername.setEnabled(true);
         txtSenha.setEnabled(true);
         jComboBoxPerfil.setEnabled(true);
-
+        
+        
         if (txtId.getText().isEmpty()){
-
+            
             JOptionPane.showMessageDialog(null, "Digite o ID para busca!");
-
+            
+            
         }else{
-
+            
             Usuario usuario = new Usuario();
-
+            
             usuario.setId(Integer.parseInt(txtId.getText()));
-
+           
             UsuarioDAO dao = new UsuarioDAO();
-
+            
             usuario = dao.consultar(usuario);
-
+            
             if(usuario!=null){
-
+                
                 txtUsername.setText(usuario.getUsername());
                 txtSenha.setText(usuario.getSenha());
                 jComboBoxPerfil.setSelectedItem(usuario.getPerfil());
-
+             
+                
             }
-
+            
             else{
-
+                
                 JOptionPane.showMessageDialog(null, "Id Inválido");
-
+                
             }
             {
-
+                
             }
         }
-
+        
     }//GEN-LAST:event_btnPesquisarUsuarioActionPerformed
 
     private void jUsuarios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUsuarios1MouseClicked
-
- 
-        txtId.setEnabled(true);
+       txtId.setEnabled(true);
         btnPesquisarUsuario.setEnabled(true);
         btnNovoUsuario.setEnabled(true);
         btnInserirUsuario.setEnabled(false);
         btnAtualizarUsuario.setEnabled(true);
         btnApagarUsuario.setEnabled(true);
         txtUsername.setEnabled(true);
-        txtSenha.setEnabled(true);
         jComboBoxPerfil.setEnabled(true);
-
-        int linha = jUsuarios.getSelectedRow(); 
-        txtId.setText(jUsuarios.getValueAt(linha,0).toString()); 
-        txtUsername.setText(jUsuarios.getValueAt(linha,1).toString());
-        txtSenha.setText(jUsuarios.getValueAt(linha,2).toString());
-        jComboBoxPerfil.setSelectedItem(jUsuarios.getValueAt(linha,3).toString());
-
+        
+        int linha = jUsuarios1.getSelectedRow(); 
+        txtId.setText(jUsuarios1.getValueAt(linha,0).toString());
+        txtUsername.setText(jUsuarios1.getValueAt(linha,1).toString()); 
+        txtSenha.setText(jUsuarios1.getValueAt(linha, 2).toString());
+        jComboBoxPerfil.setSelectedItem(jUsuarios1.getValueAt(linha,3).toString()); 
     }//GEN-LAST:event_jUsuarios1MouseClicked
 
     private void carregaTabela() throws SQLException{
         
-        DefaultTableModel modelo = (DefaultTableModel) jUsuarios.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jUsuarios1.getModel();
         modelo.setNumRows(0);
         
-        jUsuarios.getColumnModel().getColumn(0).setPreferredWidth(20);
-        jUsuarios.getColumnModel().getColumn(1).setPreferredWidth(25);
-        jUsuarios.getColumnModel().getColumn(2).setPreferredWidth(25);
-        jUsuarios.getColumnModel().getColumn(3).setPreferredWidth(25);
+        jUsuarios1.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jUsuarios1.getColumnModel().getColumn(1).setPreferredWidth(25);
+        jUsuarios1.getColumnModel().getColumn(2).setPreferredWidth(25);
+        jUsuarios1.getColumnModel().getColumn(3).setPreferredWidth(25);
         
         
          try{
-            
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","12345");
             PreparedStatement pstm;
             ResultSet rs;
@@ -525,8 +529,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                     rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4)    
-                
+                    rs.getString(4)        
             });
             }
             pstm.close();
@@ -589,85 +592,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jUsuarios;
     private javax.swing.JTable jUsuarios1;
     private javax.swing.JTextField txtId;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBtnApagarUsuario() {
-        return btnApagarUsuario;
-    }
-
-    public void setBtnApagarUsuario(JButton btnApagarUsuario) {
-        this.btnApagarUsuario = btnApagarUsuario;
-    }
-
-    public JButton getBtnAtualizarUsuario() {
-        return btnAtualizarUsuario;
-    }
-
-    public void setBtnAtualizarUsuario(JButton btnAtualizarUsuario) {
-        this.btnAtualizarUsuario = btnAtualizarUsuario;
-    }
-
-    public JButton getBtnInserirUsuario() {
-        return btnInserirUsuario;
-    }
-
-    public void setBtnInserirUsuario(JButton btnInserirUsuario) {
-        this.btnInserirUsuario = btnInserirUsuario;
-    }
-
-    public JButton getBtnLimparUsuario() {
-        return btnLimparUsuario;
-    }
-
-    public void setBtnLimparUsuario(JButton btnLimparUsuario) {
-        this.btnLimparUsuario = btnLimparUsuario;
-    }
-
-    public JButton getBtnNovoUsuario() {
+      public JButton getBtnLogin() {
         return btnNovoUsuario;
     }
 
-    public void setBtnNovoUsuario(JButton btnNovoUsuario) {
-        this.btnNovoUsuario = btnNovoUsuario;
-    }
-
-    public JButton getBtnPesquisarUsuario() {
-        return btnPesquisarUsuario;
-    }
-
-    public void setBtnPesquisarUsuario(JButton btnPesquisarUsuario) {
-        this.btnPesquisarUsuario = btnPesquisarUsuario;
-    }
-
-    public JButton getBtnVoltarUsuario() {
-        return btnVoltarUsuario;
-    }
-
-    public void setBtnVoltarUsuario(JButton btnVoltarUsuario) {
-        this.btnVoltarUsuario = btnVoltarUsuario;
-    }
-
-    public JComboBox<String> getjComboBoxPerfil() {
-        return jComboBoxPerfil;
-    }
-
-    public void setjComboBoxPerfil(JComboBox<String> jComboBoxPerfil) {
-        this.jComboBoxPerfil = jComboBoxPerfil;
-    }
-
-    public JTextField getTxtId() {
-        return txtId;
-    }
-
-    public void setTxtId(JTextField txtId) {
-        this.txtId = txtId;
+    public void setBtnLogin(JButton btnLogin) {
+        this.btnNovoUsuario = btnLogin;
     }
 
     public JPasswordField getTxtSenha() {
@@ -678,14 +615,24 @@ public class CadastroUsuario extends javax.swing.JFrame {
         this.txtSenha = txtSenha;
     }
 
+    
+
     public JTextField getTxtUsername() {
-        return txtUsername;
+        return txtId;
     }
 
     public void setTxtUsername(JTextField txtUsername) {
-        this.txtUsername = txtUsername;
+        this.txtId = txtUsername;
     }
 
-    
+    public JComboBox<String> getjComboBoxPerfil() {
+        return jComboBoxPerfil;
+    }
+
+    public void setjComboBoxPerfil(JComboBox<String> jComboBoxPerfil) {
+        this.jComboBoxPerfil = jComboBoxPerfil;
+    }
+
 }
+
 

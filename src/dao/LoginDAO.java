@@ -59,7 +59,7 @@ public class LoginDAO {
        
                         if("Administrador".equals(perfil)){
                            JOptionPane.showMessageDialog(null,"Conectado com sucesso! Seja Bem-Vindo!");
-                           MenuAdmin menu = new MenuAdmin();
+                           CadastroUsuario menu = new CadastroUsuario();
                            menu.setVisible(true);
                            this.gui.dispose();
                         }

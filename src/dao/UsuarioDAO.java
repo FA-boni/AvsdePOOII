@@ -36,7 +36,7 @@ public class UsuarioDAO {
     
     public void inserir(Usuario usuario){
     
-        String sql = "INSERT INTO usuarios(username, senha, perfil) "
+        String sql = "INSERT INTO usuarios(username, senha, perfil)"
                 + "VALUES(?,?,?)";
         
        try{
@@ -61,20 +61,20 @@ public class UsuarioDAO {
         String sql = "select * from usuarios"
                 + "from usuarios where id = ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1,String.valueOf(usuario.getId()));
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
-                consulta.setUsername(rs.getString(2));
-                consulta.setSenha(rs.getString(3));
-                consulta.setPerfil(rs.getString(4));
-            
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.setString(1,String.valueOf(usuario.getId()));
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if(rs.next()){
+                        consulta.setUsername(rs.getString(2));
+                        consulta.setSenha(rs.getString(3));
+                        consulta.setPerfil(rs.getString(4));
+                        
+                    }
+                    else{
+                        consulta = null;
+                    }
+                }
             }
-            else{
-                consulta = null;
-            }
-            rs.close();
-            stmt.close();
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
