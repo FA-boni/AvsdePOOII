@@ -58,23 +58,23 @@ public class UsuarioDAO {
     public Usuario consultar(Usuario usuario){
         
         Usuario consulta = new Usuario();
-        String sql = "select * from usuarios"
+        String sql = "select *"
                 + "from usuarios where id = ?";
         try {
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1,String.valueOf(usuario.getId()));
-                try (ResultSet rs = stmt.executeQuery()) {
-                    if(rs.next()){
-                        consulta.setUsername(rs.getString(2));
-                        consulta.setSenha(rs.getString(3));
-                        consulta.setPerfil(rs.getString(4));
-                        
-                    }
-                    else{
-                        consulta = null;
-                    }
-                }
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1,String.valueOf(usuario.getId()));
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                consulta.setUsername(rs.getString(2));
+                consulta.setSenha(rs.getString(3));
+                consulta.setPerfil(rs.getString(4));
+            
             }
+            else{
+                consulta = null;
+            }
+            rs.close();
+            stmt.close();
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }

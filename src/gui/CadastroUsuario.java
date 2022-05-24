@@ -33,12 +33,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         controller = new UsuarioDAO();
     }
     
-    public void PopularJTable(String sql) {
-          
-          try{
+     public void PopularJTable(String sql) {
+          try
+          {
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/transporte?useTimezone=true"+"&serverTimezone=UTC","root","12345");
            PreparedStatement banco = (PreparedStatement)conn.prepareStatement(sql);
-           banco.execute(); 
+           banco.execute(); // cria o vetor
 
            ResultSet resultado = banco.executeQuery(sql);
 
@@ -49,6 +49,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
            {
                model.addRow(new Object[] 
                { 
+                  //retorna os dados da tabela do BD, cada campo e um coluna.
                   resultado.getString("id"),
                   resultado.getString("username"),
                   resultado.getString("senha"),
@@ -369,7 +370,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(btnApagarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap())
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,7 +412,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                     .addComponent(btnApagarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(102, 102, 102)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 866, Short.MAX_VALUE)
         );
 
         pack();
@@ -575,8 +576,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 txtUsername.setText(usuario.getUsername());
                 txtSenha.setText(usuario.getSenha());
                 jComboBoxPerfil.setSelectedItem(usuario.getPerfil());
-             
-                
             }
             
             else{
@@ -614,21 +613,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseMoved
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        MenuAlunos menu1 = new MenuAlunos();
-        menu1.show();
+
 
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        MenuOrientador ori = new MenuOrientador();
-        ori.show();
+
 
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
 
-        MenuEmpresa emp = new MenuEmpresa();
-        emp.show();
 
     }//GEN-LAST:event_jLabel15MouseClicked
 

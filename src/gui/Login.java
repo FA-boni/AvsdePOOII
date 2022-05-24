@@ -51,11 +51,12 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(-50, 0, 560, 530);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setForeground(new java.awt.Color(78, 1, 45));
 
-        txtUsername.setBackground(new java.awt.Color(255, 204, 204));
+        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
         txtUsername.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.setForeground(new java.awt.Color(78, 1, 45));
         txtUsername.setText("Digite seu Nome");
         txtUsername.setBorder(null);
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -64,15 +65,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtSenha.setBackground(new java.awt.Color(255, 204, 204));
+        txtSenha.setBackground(new java.awt.Color(204, 204, 204));
         txtSenha.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setForeground(new java.awt.Color(78, 1, 45));
         txtSenha.setText("Senha0000000");
         txtSenha.setBorder(null);
 
-        btnLogin.setBackground(new java.awt.Color(255, 204, 204));
+        btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setForeground(new java.awt.Color(204, 204, 204));
         btnLogin.setText("Log In");
         btnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -82,7 +83,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 204, 204));
+        jCheckBox1.setBackground(new java.awt.Color(204, 204, 204));
         jCheckBox1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Manter conectado");
@@ -90,11 +91,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-user-100.png"))); // NOI18N
 
-        jSeparator1.setBackground(new java.awt.Color(255, 204, 204));
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator1.setForeground(new java.awt.Color(78, 1, 45));
 
-        jSeparator2.setBackground(new java.awt.Color(255, 204, 204));
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
+        jSeparator2.setForeground(new java.awt.Color(78, 1, 45));
         jSeparator2.setToolTipText("");
         jSeparator2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -107,9 +108,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-usuário-30.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-usuário-30 (1).png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-mostrar-a-senha-30 (1).png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-mostrar-a-senha-30 (3).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -240,8 +241,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel TxtLogin;
-    private javax.swing.JLabel TxtLogin1;
     private javax.swing.JLabel X;
     private javax.swing.JButton btnLogin;
     private javax.swing.JCheckBox jCheckBox1;
