@@ -47,9 +47,9 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(78, 1, 45));
         jPanel2.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/a450e096-599b-442f-bc58-190de353f3da.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/WhatsApp Image 2022-05-29 at 17.49.18.jpeg"))); // NOI18N
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(-50, 0, 560, 530);
+        jLabel1.setBounds(-120, 50, 630, 470);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(78, 1, 45));
@@ -73,7 +73,7 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(204, 204, 204));
+        btnLogin.setForeground(new java.awt.Color(78, 1, 45));
         btnLogin.setText("Log In");
         btnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -176,8 +176,8 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
