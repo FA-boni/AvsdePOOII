@@ -64,6 +64,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
          {
             System.out.println("o erro foi " +ex);
           }
+           carregaTabela();
          }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -326,7 +327,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/Screenshot_2.png"))); // NOI18N
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 830, 160, 200));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 257, 1164));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 1164));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icons/icons8-procurar-usuário-masculino-30 (1).png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 132, 39, 35));
@@ -357,11 +358,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jUsuarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 1490, 530));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 1530, 530));
 
         jLabelMin.setBackground(new java.awt.Color(204, 204, 204));
         jLabelMin.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabelMin.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMin.setForeground(new java.awt.Color(78, 1, 45));
         jLabelMin.setText("-");
         jLabelMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelMin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -369,11 +370,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 jLabelMinMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1700, 0, -1, -1));
+        getContentPane().add(jLabelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1740, 0, -1, -1));
 
         jLabelClose.setBackground(new java.awt.Color(204, 204, 204));
         jLabelClose.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabelClose.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelClose.setForeground(new java.awt.Color(78, 1, 45));
         jLabelClose.setText("X");
         jLabelClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -381,7 +382,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 jLabelCloseMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabelClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 0, -1, -1));
+        getContentPane().add(jLabelClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -397,6 +398,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtUsername.setEnabled(true);
         txtSenha.setEnabled(true);
         jComboBoxPerfil.setEnabled(true);
+        carregaTabela();
 
     }//GEN-LAST:event_btnNovoUsuarioActionPerformed
 
@@ -414,6 +416,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtId.setText("");
         txtUsername.setText("");
         txtSenha.setText("");
+         carregaTabela();
 
     }//GEN-LAST:event_btnVoltarUsuarioActionPerformed
 
@@ -422,6 +425,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtId.setText("");
         txtUsername.setText("");
         txtSenha.setText("");
+         carregaTabela();
 
     }//GEN-LAST:event_btnLimparUsuarioActionPerformed
 
@@ -451,6 +455,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtUsername.setText("");
         txtSenha.setText("");
         jComboBoxPerfil.setSelectedItem("");
+         carregaTabela();
 
     }//GEN-LAST:event_btnInserirUsuarioActionPerformed
 
@@ -481,6 +486,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             jComboBoxPerfil.setSelectedItem("");
 
         }
+         carregaTabela();
 
     }//GEN-LAST:event_btnAtualizarUsuarioActionPerformed
 
@@ -507,6 +513,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             txtUsername.setText("");
             txtSenha.setText("");
             jComboBoxPerfil.setSelectedItem("");
+             carregaTabela();
 
         }
 
@@ -554,6 +561,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             {
                 
             }
+             carregaTabela();
         }
         
     }//GEN-LAST:event_btnPesquisarUsuarioActionPerformed
